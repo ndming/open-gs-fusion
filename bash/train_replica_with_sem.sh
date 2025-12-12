@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Define global paths
-DATA_ROOT=/your/path/to/Replica
-OUTPUT_ROOT="./output/Replica"
+DATA_ROOT=/home/minhnd59/datasets/replica
+OUTPUT_ROOT="./output/replica"
 CONFIG_PATH="./configs/Replica/caminfo.txt"
 SCRIPT_PATH="opengs_fusion.py"
 
 # Define scenes array
-scenes=("room0" "room1" "room2" "office1" "office2" "office3" "office4")
+# scenes=("room0" "room1" "room2" "office1" "office2" "office3" "office4")
+scenes=("office0")
 
 # Traverse scenes and run commands
 for scene_name in "${scenes[@]}"; do
@@ -18,7 +19,7 @@ for scene_name in "${scenes[@]}"; do
     
     # Define paths for current scene
     scene_path="${DATA_ROOT}/${scene_name}"
-    color_path="${scene_path}/rgb"
+    color_path="${scene_path}/images"
     feature_path="${scene_path}/mobile_sam_feature"
     output_path="${OUTPUT_ROOT}/${scene_name}/${scene_name}_default_each_sem"
     

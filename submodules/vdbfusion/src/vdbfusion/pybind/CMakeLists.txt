@@ -28,17 +28,18 @@ endif()
 set(ENV_PATH $ENV{OPENGS_ENV})
 
 # 设置路径变量
-set(CMAKE_PREFIX_PATH "${ENV_PATH}/lib/python3.9/site-packages/torch/share/cmake")
-set(CMAKE_LIBRARY_PATH "/usr/local/cuda-11.8/lib64;${ENV_PATH}/lib")
+# set(CMAKE_PREFIX_PATH "${ENV_PATH}/lib/python3.9/site-packages/torch/share/cmake")
+# set(CMAKE_LIBRARY_PATH "/usr/local/cuda-11.8/lib64;${ENV_PATH}/lib")
 
 find_package(pybind11 REQUIRED)
 
 # 设置libtorch的路径
-set(Torch_DIR "${ENV_PATH}/lib/python3.9/site-packages/torch/share/cmake/Torch/")
+# set(Torch_DIR "${ENV_PATH}/lib/python3.9/site-packages/torch/share/cmake/Torch/")
+
+find_package(CUDA REQUIRED)
 find_package(Torch REQUIRED)
 
 # 打印找到的libtorch的路径
-message(STATUS "Torch_DIR: ${Torch_DIR}")
 
 # 添加定义以使用旧的CXX11 ABI
 # add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)

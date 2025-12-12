@@ -1,1 +1,4 @@
 submodules/MobileSAM/MobileSAMv2/weight/
+output/
+__pycache__/
+.vscode/

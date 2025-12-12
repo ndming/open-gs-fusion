@@ -17,10 +17,13 @@ This repository is intended to provide an engineering implementation of our pape
 ## Environments
 Install requirements
 ```bash
-conda create -n opengsfusion python==3.9
+# conda create -n opengsfusion python==3.9
+# conda activate opengsfusion
+# conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+# conda install cmake
+conda env create --file environment.yml
 conda activate opengsfusion
-conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
-conda install cmake
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
 pip install -r requirements.txt
 ```
 Also, PCL is needed for fast-gicp submodule.
@@ -28,21 +31,24 @@ Also, PCL is needed for fast-gicp submodule.
 Install submodules
 
 ```bash
-conda activate opengsfusion
+# conda activate opengsfusion
 pip install submodules/diff-gaussian-rasterization
 pip install submodules/simple-knn
 pip install submodules/MobileSAM
 
-export OPENGS_ENV=/path/to/your/anaconda3/envs/opengsfusion
+# export OPENGS_ENV=/path/to/your/anaconda3/envs/opengsfusion
+export OPENGS_ENV=$CONDA_PREFIX
+export Torch_DIR=$CONDA_PREFIX/lib/python3.10/site-packages/torch/share/cmake/Torch
 pip install submodules/vdbfusion
+pip install submodules/fast_gicp
 
-cd submodules/fast_gicp
-mkdir build
-cd build
-cmake ..
-make
-cd ..
-python setup.py install --user
+# cd submodules/fast_gicp
+# mkdir build
+# cd build
+# cmake ..
+# make
+# cd ..
+# python setup.py install --user
 ```
 
 Install mobilesam2 weights

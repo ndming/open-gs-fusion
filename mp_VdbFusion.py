@@ -36,7 +36,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir,"submodules","vdbfusion","src","vdbfusion","pybind"))
 sys.path.append(os.path.dirname(__file__))
 from arguments import SLAMParameters
-import vdbfusion_pybind
+from vdbfusion.pybind import vdbfusion_pybind
 
 class VdbFusion(SLAMParameters):
     def __init__(self, slam):

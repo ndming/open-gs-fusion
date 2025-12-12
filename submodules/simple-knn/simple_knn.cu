@@ -24,6 +24,8 @@
 #include <cooperative_groups.h>
 #include <cooperative_groups/reduce.h>
 
+#include <float.h>
+
 namespace cg = cooperative_groups;
 
 struct CustomMin
